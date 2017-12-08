@@ -35,6 +35,19 @@ void heapSort(Item array[], int array_size){
 	}
 }
 
+template<class Item>
+void insertSort(Item a[], int size) {
+	for (int i = 0; i < size; i++) {
+		Item x = a[i];
+
+		int j = i - 1;
+		for (; j >= 0 && a[j] > x; j--)
+			a[j + 1] = a[j];
+
+		a[j + 1] = x;
+	}
+}
+
 template <class Item>
 void print(Item array[], int size) {
 	for (int a = 0; a < size; a++) {
@@ -43,9 +56,9 @@ void print(Item array[], int size) {
 }
 
 int main() {
-	int a[3] = { 100, 20, -100 };
+	char a[3] = { 'a', 'c', 'b' };
 
-	heapSort(a, size(a));
+	insertSort(a, size(a));
 
 	for (int ai = 0; ai < 3; ai++) {
 		cout << a[ai] << endl;
